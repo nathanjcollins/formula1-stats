@@ -1,5 +1,9 @@
 <script>
     import '../app.postcss';
+    import { dev } from '$app/environment';
+    import { inject } from '@vercel/analytics';
+
+    inject({ mode: dev ? 'development' : 'production' });
 </script>
 
 <div class="app max-w-5xl m-auto mt-10 flex items-center justify-center">
