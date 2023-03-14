@@ -33,8 +33,6 @@ export const load = (async ({cookies}) => {
     const qualifyingWeather = weatherData.list.find(x => new Date(x.dt_txt) <= new Date(`${nextRace.Qualifying.date} ${nextRace.Qualifying.time}`))!;
     const raceWeather = weatherData.list.find(x => new Date(x.dt_txt) <= new Date(`${nextRace.date} ${nextRace.time}`))!;
 
-    console.log(raceWeather);
-
     const raceSessions: RaceSession[] = [
         {
             name: "Practice 1",
