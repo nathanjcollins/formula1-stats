@@ -1,13 +1,6 @@
 <script lang="ts">
     import type {PageData} from "./$types";
     import RaceWidget from "./RaceWidget.svelte";
-    import type { Config } from '@sveltejs/adapter-vercel';
-
-    export const config: Config = {
-        isr: {
-            expiration: 3600,
-        }
-    }
 
     export let data: PageData;
     // const raceData: Race = {

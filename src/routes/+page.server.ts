@@ -3,6 +3,13 @@ import type {CircuitResponse} from "../types/circuit-response";
 import type {WeatherResponse} from "../types/weather-response";
 import {OPENWEATHER_API_KEY} from "$env/static/private";
 import type {Race, RaceSession} from "../types/race";
+import type { Config } from '@sveltejs/adapter-vercel';
+
+export const config: Config = {
+    isr: {
+        expiration: 60,
+    }
+};
 
 export const load = (async ({cookies}) => {
     const response = await fetch("https://ergast.com/api/f1/current.json");
