@@ -26,6 +26,8 @@ export const load = (async ({cookies}) => {
     const qualifyingWeather = weatherData.list.find(x => new Date(x.dt_txt) <= new Date(`${nextRace.Qualifying.date} ${nextRace.Qualifying.time}`))!;
     const raceWeather = weatherData.list.find(x => new Date(x.dt_txt) <= new Date(`${nextRace.date} ${nextRace.time}`))!;
 
+    console.log(raceWeather);
+
     const raceSessions: RaceSession[] = [
         {
             name: "Practice 1",
@@ -36,7 +38,9 @@ export const load = (async ({cookies}) => {
                 wind: p1Weather.wind.speed,
                 icon: p1Weather.weather[0].icon,
                 humidity: p1Weather.main.humidity,
-                temperature: p1Weather.main.temp
+                temperature: p1Weather.main.temp,
+                rainInTheLastThreeHours: p1Weather.rain !== undefined ? p1Weather.rain ["3h"] : 0,
+                precipitationProbability: p1Weather.pop * 100
             }
         },
         {
@@ -48,7 +52,9 @@ export const load = (async ({cookies}) => {
                 wind: p2Weather.wind.speed,
                 icon: p2Weather.weather[0].icon,
                 humidity: p2Weather.main.humidity,
-                temperature: p2Weather.main.temp
+                temperature: p2Weather.main.temp,
+                rainInTheLastThreeHours: p2Weather.rain !== undefined ? p2Weather.rain ["3h"] : 0,
+                precipitationProbability: p2Weather.pop * 100
             }
         },
         {
@@ -60,7 +66,9 @@ export const load = (async ({cookies}) => {
                 wind: p3Weather.wind.speed,
                 icon: p3Weather.weather[0].icon,
                 humidity: p3Weather.main.humidity,
-                temperature: p3Weather.main.temp
+                temperature: p3Weather.main.temp,
+                rainInTheLastThreeHours: p3Weather.rain !== undefined ? p3Weather.rain ["3h"] : 0,
+                precipitationProbability: p3Weather.pop * 100
             }
         },
         {
@@ -72,7 +80,9 @@ export const load = (async ({cookies}) => {
                 wind: qualifyingWeather.wind.speed,
                 icon: qualifyingWeather.weather[0].icon,
                 humidity: qualifyingWeather.main.humidity,
-                temperature: qualifyingWeather.main.temp
+                temperature: qualifyingWeather.main.temp,
+                rainInTheLastThreeHours: qualifyingWeather.rain !== undefined ? qualifyingWeather.rain ["3h"] : 0,
+                precipitationProbability: qualifyingWeather.pop * 100
             }
         },
         {
@@ -84,7 +94,9 @@ export const load = (async ({cookies}) => {
                 wind: raceWeather.wind.speed,
                 icon: raceWeather.weather[0].icon,
                 humidity: raceWeather.main.humidity,
-                temperature: raceWeather.main.temp
+                temperature: raceWeather.main.temp,
+                rainInTheLastThreeHours: raceWeather.rain !== undefined ? raceWeather.rain ["3h"] : 0,
+                precipitationProbability: raceWeather.pop * 100
             }
         },
     ]

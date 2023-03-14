@@ -18,4 +18,6 @@ export interface RaceWeather {
     humidity: number;
     cloudCoverage: number;
     description: string;
+    precipitationProbability: number;
+    rainInTheLastThreeHours: number;
 }

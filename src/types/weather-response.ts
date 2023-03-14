@@ -15,6 +15,7 @@ export interface WeatherItem {
     pop: number;
     sys: WeatherSys;
     dt_txt: string;
+    rain?: { [key: string]: number };
 }
 
 export interface WeatherMain {

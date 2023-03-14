@@ -12,5 +12,7 @@
         <p>Humidity: {data.weather.humidity}%</p>
         <p>Cloud Coverage: {data.weather.cloudCoverage}%</p>
         <p>Wind Speed: {data.weather.wind}meters/sec</p>
+        <p>Probability of Rain: {data.weather.precipitationProbability}%</p>
+        <p>Rain (last 3 hours): {data.weather.rainInTheLastThreeHours}mm</p>
     </div>
 </div>
